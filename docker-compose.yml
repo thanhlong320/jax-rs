@@ -1,0 +1,31 @@
+services:
+  mysqldb:
+    container_name: 'db'
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: sample
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - 3306:3306
+    networks:
+      - bookstore
+  mywildfly:
+    build:
+      context: ./
+    environment:
+      MYSQL_URI: host.docker.internal:3306
+      MYSQL_DATABASE: sample
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DAS_URI: 192.168.70.67:3306
+      MYSQL_DAS_DATABASE: isc
+      MYSQL_DAS_ROOT_PASSWORD: Admin@123
+    ports:
+      - 8080:8080
+      - 9990:9990
+    networks:
+      - bookstore
+networks:
+  bookstore:
+    driver: bridge
