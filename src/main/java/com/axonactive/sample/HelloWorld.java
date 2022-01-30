@@ -1,5 +1,9 @@
 package com.axonactive.sample;
 
+import com.axonactive.sample.entities.Department;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

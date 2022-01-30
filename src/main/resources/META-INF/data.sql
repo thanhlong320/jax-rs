@@ -1,0 +1,1 @@
+insert into department(id, name, location) values (1, "YURICH", "TPHCM")
