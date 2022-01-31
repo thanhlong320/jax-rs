@@ -7,7 +7,8 @@ import javax.persistence.PersistenceContext;
 
 public class DepartmentDAOImpl implements DepartmentDAO{
 
-    @PersistenceContext(unitName = "default")
+//    unitName must be same in persistence.xml
+    @PersistenceContext(unitName = "sample")
     private EntityManager entityManager;
 
     @Override

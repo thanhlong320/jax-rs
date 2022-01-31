@@ -4,10 +4,7 @@ import com.axonactive.sample.dao.DepartmentDAO;
 import com.axonactive.sample.entities.Department;
 
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -17,7 +14,7 @@ public class DepartmentService {
     private DepartmentDAO departmentDAO;
 
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response getDepartment(@PathParam("id") Long id){
         Department department = departmentDAO.findDepartmentById(id);
